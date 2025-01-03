@@ -1,0 +1,11 @@
+.griglia {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.griglia img {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
