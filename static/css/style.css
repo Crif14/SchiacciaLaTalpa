@@ -1,5 +1,6 @@
 @import "grid.css";
 @import "menu.css";
+@import "info.css";
 
 .hide {
     display: none;

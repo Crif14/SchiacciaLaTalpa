@@ -2,8 +2,8 @@ let selectedDifficulty = null;
 
 function startGame() {
     if (!selectedDifficulty) {
-        document.getElementById('difficultyDropdown').classList.remove('btn-secondary');
-        document.getElementById('difficultyDropdown').classList.add('btn-danger');
+        document.getElementById('difficultyDropdown').classList.remove('is-primary');
+        document.getElementById('difficultyDropdown').classList.add('is-error');
         alert('Seleziona una difficoltà prima di avviare il gioco!');
     } else {
         alert('Gioco avviato con difficoltà: ' + selectedDifficulty);

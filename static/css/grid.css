@@ -1,11 +1,54 @@
 .griglia {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 80px;
+    margin-top: 90px;
+
 }
 
 .griglia img {
-    width: 50px;
+    display: block;
+    width: 60px;
     height: auto;
     border-radius: 5px;
+}
+
+#botreset {
+    margin-top: 30px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#botreset:hover {
+    background-color: #e60000;
+    transform: scale(1.1);
+}
+
+#botreset:focus {
+    outline: none;
+    box-shadow: 0 0 12px rgba(255, 76, 76, 0.8);
+}
+
+#botreset:disabled {
+    background-color: #ffcccc;
+    cursor: not-allowed;
+}
+
+.mario {
+    position: absolute;
+    top: -90px;
+    left: -10px;
+}
+
+.container-img {
+    position: relative;
+}
+
+#container-punteggio {
+    color: white;
 }
