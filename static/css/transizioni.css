@@ -1,0 +1,7 @@
+.tornasu {
+    top: -90px;
+    opacity: 1;
+    transition: top 500ms linear;
+}
+
+.tornagiu {}

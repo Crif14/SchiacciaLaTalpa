@@ -41,7 +41,7 @@
 
 .mario {
     position: absolute;
-    top: -90px;
+    z-index: 0;
     left: -10px;
 }
 

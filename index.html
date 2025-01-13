@@ -274,12 +274,12 @@
                 }
                 talpadauscire = generateRandomInteger(0, 11);
                 talpauscita[talpadauscire] = true;
-                talpe[talpadauscire].classList.remove("hide");
+                talpe[talpadauscire].classList.replace("hide", "tornasu");
                 console.log("Talpa uscita: " + talpadauscire);
 
                 // Dopo un certo tempo, la talpa sparisce di nuovo
                 uscitaTimer = setTimeout(() => {
-                    talpe[talpadauscire].classList.add("hide");
+                    talpe[talpadauscire].classList.replace("tornasu", "hide");
                     talpauscita[talpadauscire] = false;
                     uscita(); // Richiama la funzione per continuare il ciclo
                 }, tempo);
@@ -288,7 +288,8 @@
             } else {
                 clearTimeout(uscitaTimer);
                 clearTimeout(tienitempo);
-
+                talpe[talpadauscire].classList.add("hide");
+                talpauscita[talpadauscire] = false;
                 // Aggiorna la classifica con il punteggio finale
                 aggiornaClassifica(punteggio);
 
@@ -310,19 +311,22 @@
         }
         for (let i = 0; i < talpe.length; i++) {
             talpe[i].addEventListener("click", function (event) {
-                let el = event.currentTarget;
-                let j = Array.from(talpe).indexOf(el);
-                if (talpauscita[j] == true) {
-                    cliccato = true;
-                    talpe[j].classList.add("hide");
-                    talpauscita[j] = false;
-                    clearTimeout(uscitaTimer);
-                    uscita();
-                    punteggio = punteggio + 100
-                    punthtml.innerHTML = punteggio
+                if (tempistica < 30) {
+                    let el = event.currentTarget;
+                    let j = Array.from(talpe).indexOf(el);
+                    if (talpauscita[j] == true) {
+                        cliccato = true;
+                        talpe[j].classList.add("hide");
+                        talpauscita[j] = false;
+                        clearTimeout(uscitaTimer);
+                        uscita();
+                        punteggio = punteggio + 100
+                        punthtml.innerHTML = punteggio
+                    }
                 }
             });
         }
+
 
 
 
