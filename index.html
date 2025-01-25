@@ -11,7 +11,8 @@
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 </head>
 
-<body background="static/image/sfondo.jpg">
+<body id="body" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"
+    background="static/image/sfondo.jpg">
     <div class="container mt-5">
         <div class="row">
             <!-- Colonna sinistra -->
@@ -62,73 +63,73 @@
                     </div>
                     <div class="griglia ">
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 1">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 2">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 3">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 4">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 5">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 6">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 7">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 8">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 9">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 10">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 11">
                         </div>
                         <div class="container-img">
-                            <div class="hide mario">
+                            <div class="giu mario">
                                 <i class="nes-mario"></i>
                             </div>
                             <img src="static/image/tubo.png" alt="Immagine 12">
@@ -152,19 +153,24 @@
                         Avrai 30 secondi per schiacciare più talpe possibili che in base alla difficolta scelta
                         appariranno e scompariranno più velocemente;
                     </li>
-                    <li class="hide">
-                        Attenzione!!
-                        Non tutti i tipi di talpe sono uguali; <input type="button" value="(Clicca qui per vederli)"
-                            id="btn-personaggi">
-                    </li>
                 </ul>
             </div>
         </div>
     </div>
+    <div id="divfinegioco" class="finegioco">
+        <div class="fineCenter">
+            <h1 id="titolofine" class="press-start-2p-regular fineCentro">Game Over</h1>
+            <p id="finePunteggio"></p>
+            <input type="button" value="Rinizia" id="btnRinizia">
+        </div>
+
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script>
+        let finegioco = document.querySelector("#divfinegioco")
         let menuplay = document.querySelector("#menuplay")
         let contgrid = document.querySelector("#cont-grid")
         let selectedDifficulty = null;
@@ -196,12 +202,14 @@
             casualNumber = parseInt(casualNumber)
             return casualNumber
         }
+
+        //Funzione per aggiornare la classifica
         function aggiornaClassifica(punteggio) {
-            // Seleziona gli elementi della classifica
+            //Seleziona gli elementi della classifica
             let classificaElementi = document.querySelectorAll("#punteggi ol li");
             let punteggi = [];
 
-            // Raccogli i punteggi esistenti (evita elementi vuoti)
+            //Raccogle i punteggi esistenti (evita elementi vuoti)
             for (let i = 0; i < classificaElementi.length; i++) {
                 let valore = parseInt(classificaElementi[i].innerText);
                 if (!isNaN(valore)) {
@@ -211,7 +219,7 @@
                 }
             }
 
-            // Inserisce il nuovo punteggio al posto giusto nella classifica
+            //Inserisce il nuovo punteggio al posto giusto nella classifica
             let inserito = false;
             for (let i = 0; i < punteggi.length; i++) {
                 if (punteggio > punteggi[i]) {
@@ -225,21 +233,35 @@
                 }
             }
 
-            // Se il punteggio non è stato inserito ed è minore di tutti, mettilo in fondo
+            //Se il punteggio non è stato inserito ed è minore di tutti, lo mette in fondo
             if (!inserito && punteggi.length < classificaElementi.length) {
                 punteggi[punteggi.length] = punteggio;
             }
 
-            // Aggiorna il contenuto HTML della classifica
+            //Aggiorna il contenuto HTML della classifica
             for (let i = 0; i < classificaElementi.length; i++) {
                 classificaElementi[i].innerText = punteggi[i] !== 0 ? punteggi[i] : "";
             }
 
-            // Aggiorna l'ultimo punteggio
+            //Aggiorna l'ultimo punteggio
             document.querySelector("#ultimo").innerText = punteggio;
         }
 
+        //Funzioni cambio gradiente fine
+        function cambioOverlayRosso() {
+            finegioco.classList.replace("overlayGiallo", "overlayRosso")
+            overlayGiallo = setTimeout(() => {
+                cambioOverlayGiallo();
+            }, 1000);
+        }
+        function cambioOverlayGiallo() {
+            finegioco.classList.replace("overlayRosso", "overlayGiallo")
+            overlayRosso = setTimeout(() => {
+                cambioOverlayRosso();
+            }, 1000);
+        }
 
+        //Funzione per iniziare il gioco
         function startGame() {
             if (!selectedDifficulty) {
                 document.querySelector('#difficultyDropdown').classList.remove('is-primary');
@@ -250,16 +272,17 @@
                 menuplay.classList.add("hide")
                 contgrid.classList.remove("hide")
                 if (selectedDifficulty = "Difficile") {
-                    tempo = 1000
+                    tempo = 500
                 } else if (selectedDifficulty = "Medio") {
-                    tempo = 1500
+                    tempo = 1000
                 } else {
-                    tempo = 2000
+                    tempo = 1500
                 }
                 uscita()
             }
         }
 
+        //Funzione per mpostare la difficolta
         function setDifficulty(level) {
             selectedDifficulty = level;
             document.querySelector('#difficultyDropdown').classList.remove('btn-danger');
@@ -267,6 +290,7 @@
             document.querySelector('#difficultyDropdown').innerText = 'Difficoltà: ' + level;
         }
 
+        //Funzione per uscita delle talpe
         function uscita() {
             if (tempistica < 30) {
                 if (uscitaTimer !== null) {
@@ -274,12 +298,13 @@
                 }
                 talpadauscire = generateRandomInteger(0, 11);
                 talpauscita[talpadauscire] = true;
-                talpe[talpadauscire].classList.replace("hide", "tornasu");
+
+                talpe[talpadauscire].classList.replace("giu", "torna");
                 console.log("Talpa uscita: " + talpadauscire);
 
                 // Dopo un certo tempo, la talpa sparisce di nuovo
                 uscitaTimer = setTimeout(() => {
-                    talpe[talpadauscire].classList.replace("tornasu", "hide");
+                    talpe[talpadauscire].classList.replace("torna", "giu");
                     talpauscita[talpadauscire] = false;
                     uscita(); // Richiama la funzione per continuare il ciclo
                 }, tempo);
@@ -288,27 +313,37 @@
             } else {
                 clearTimeout(uscitaTimer);
                 clearTimeout(tienitempo);
-                talpe[talpadauscire].classList.add("hide");
+                talpe[talpadauscire].classList.replace("torna", "giu");
                 talpauscita[talpadauscire] = false;
                 // Aggiorna la classifica con il punteggio finale
                 aggiornaClassifica(punteggio);
-
+                //Discesa overlay finegioco
+                finegioco.classList.add("overlayRosso", "visible")
+                let puntfine = document.querySelector("#finePunteggio")
+                puntfine.innerText = "Gioco terminato. Punteggio finale: " + punteggio
+                setTimeout(() => {
+                    cambioOverlayGiallo();
+                }, 1000);
                 console.log("Gioco terminato. Punteggio finale: " + punteggio);
             }
         }
 
+        //Eventlistener che avvia il gioco 
         document.querySelector('#avviogioco').addEventListener("click", function (event) {
             startGame();
             tienitempo = setTimeout(() => secondi(), 1000);
         })
+
+        //Per impostare la difficolta
         for (let i = 0; i < difficolta.length; i++) {
             difficolta[i].addEventListener("click", function (event) {
                 let el = event.currentTarget;
-                let difficulty = el.innerText;  // Ottieni il testo dell'elemento
-                setDifficulty(difficulty);  // Imposta la difficoltà
+                let difficulty = el.innerText;  //Ottiene il testo dell'elemento
+                setDifficulty(difficulty);  //Imposta la difficoltà
                 console.log("Difficoltà selezionata: " + difficulty);
             })
         }
+        //Funzione talpa cliccata 
         for (let i = 0; i < talpe.length; i++) {
             talpe[i].addEventListener("click", function (event) {
                 if (tempistica < 30) {
@@ -316,7 +351,7 @@
                     let j = Array.from(talpe).indexOf(el);
                     if (talpauscita[j] == true) {
                         cliccato = true;
-                        talpe[j].classList.add("hide");
+                        talpe[talpadauscire].classList.replace("torna", "giu");
                         talpauscita[j] = false;
                         clearTimeout(uscitaTimer);
                         uscita();
@@ -326,6 +361,46 @@
                 }
             });
         }
+        document.querySelector('#btnRinizia').addEventListener('click', function () {
+            //Nasconde l'overlay e la griglia di fine gioco e mostra il menu principale
+            finegioco.classList.remove("visible");
+            menuplay.classList.remove("hide");
+            contgrid.classList.add("hide")
+            // Reset delle talpe
+            for (let i = 0; i < talpe.length; i++) {
+                talpe[i].classList.replace("torna", "giu");
+                talpauscita[i] = false;
+            }
+            // Reset delle variabili di gioco
+            clearTimeout(tienitempo);
+            clearTimeout(uscitaTimer);
+            tempistica = 0;
+            punteggio = 0;
+            sbarra.value = 0;
+            selectedDifficulty = null;
+            // Ripristina il dropdown delle difficoltà
+            document.querySelector('#difficultyDropdown').innerText = 'Scegli Difficoltà';
+            document.querySelector('#difficultyDropdown').classList.remove('is-error');
+        });
+
+        document.querySelector('#botreset').addEventListener("click", function () {
+            // Nascondi la griglia di gioco e mostra il menu principale
+            menuplay.classList.remove("hide");
+            contgrid.classList.add("hide");
+            //Reset delle talpe
+            for (let i = 0; i < 12; i++) {
+                talpe[i].classList.replace("torna", "giu");
+            }
+            // Reset delle variabili 
+            clearTimeout(tienitempo);
+            clearTimeout(uscitaTimer);
+            tempistica = 0;
+            punteggio = 0;
+            punthtml.innerHTML = punteggio;
+            // Resetta la barra di progresso
+            sbarra.value = 0;
+            console.log("Gioco resettato. Tornato al menu principale.");
+        });
 
 
 

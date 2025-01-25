@@ -26,23 +26,8 @@
 
 #botreset:hover {
     background-color: #e60000;
-    transform: scale(1.1);
-}
-
-#botreset:focus {
-    outline: none;
     box-shadow: 0 0 12px rgba(255, 76, 76, 0.8);
-}
-
-#botreset:disabled {
-    background-color: #ffcccc;
-    cursor: not-allowed;
-}
-
-.mario {
-    position: absolute;
-    z-index: 0;
-    left: -10px;
+    transform: scale(1.1);
 }
 
 .container-img {

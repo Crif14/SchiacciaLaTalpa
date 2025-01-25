@@ -1,10 +1,15 @@
 @import "grid.css";
-@import "menu.css";
 @import "info.css";
-@import "transizioni.css";
+@import "fine.css";
+@import "font.css";
+@import "personaggi.css";
 
 .hide {
     display: none;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .center {
