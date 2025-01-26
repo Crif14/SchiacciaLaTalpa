@@ -1,0 +1,19 @@
+#moltiplicatore {
+    font-size: 40px;
+}
+
+.moltiplicatore-spento {
+    color: #aaa;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    transition: all 0.6s ease;
+}
+
+.moltiplicatore-attivo {
+    color: #ff6347;
+    text-shadow: 0 0 20px rgba(255, 99, 71, 0.8), 0 0 30px rgba(255, 99, 71, 0.8);
+    opacity: 1;
+    transform: scale(1.2);
+    transition: all 0.6s ease;
+    animation: accensione 1s ease-in-out infinite alternate;
+}

@@ -3,6 +3,7 @@
 @import "fine.css";
 @import "font.css";
 @import "personaggi.css";
+@import "moltiplicatore.css";
 
 .hide {
     display: none;
@@ -15,4 +16,9 @@ body {
 .center {
     display: flex;
     justify-content: center;
+}
+
+.inline {
+    display: flex;
+    justify-content: space-between;
 }
