@@ -258,7 +258,7 @@ for (let i = 0; i < talpe.length; i++) {
             let el = event.currentTarget;
             let j = Array.from(talpe).indexOf(el);
             if (talpauscita[j] == true) {
-                audiocolpitocolpito.play();
+                audiocolpito.play();
                 cliccato = true;
                 talpe[talpadauscire].classList.replace("torna", "giu");
                 talpauscita[j] = false;
@@ -281,7 +281,7 @@ for (let i = 0; i < peach.length; i++) {
             let el = event.currentTarget;
             let j = Array.from(peach).indexOf(el);
             if (peachuscita[j] == true) {
-                audiocolpitocolpito.play();
+                audiocolpito.play();
                 cliccato = true;
                 peach[talpadauscire].classList.replace("torna", "giu");
                 peachuscita[j] = false;
