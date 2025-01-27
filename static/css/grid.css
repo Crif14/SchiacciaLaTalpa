@@ -37,3 +37,20 @@
 #container-punteggio {
     color: white;
 }
+
+@media (max-width: 768px) {
+    #contenitore {
+        display: flex;
+        justify-content: center;
+    }
+
+    .griglia img {
+        width: 25px;
+        height: auto;
+    }
+
+    .griglia {
+        margin-top: 50px;
+    }
+
+}

@@ -28,6 +28,7 @@ const audiocolpito = new Audio("static/audio/colpito.mp3")
 const audiobomba = new Audio("static/audio/bomba.mp3")
 const audiosconfitta = new Audio("static/audio/sconfitta.mp3")
 const audiovittoria = new Audio("static/audio/vittoria.mp3")
+const audiogioco = new Audio("static/audio/audiogioco.mp3")
 //contatore secondi
 function secondi() {
     tempistica = tempistica + 1;
@@ -139,6 +140,7 @@ function startGame() {
             tempo = 1500
         }
         uscita()
+        audiogioco.play()
     }
 }
 
@@ -215,6 +217,7 @@ function uscita() {
         moltiplicatore.classList.replace("moltiplicatore-attivo", "moltiplicatore-spento");
         moltluce = false;
         nvite = 3
+        audiogioco.pause()
         for (let i = 0; i < 3; i++) {
             vite[i].classList.remove("is-empty");
         }
@@ -342,6 +345,7 @@ document.querySelector('#btnRinizia').addEventListener('click', function () {
     tempistica = 0;
     punteggio = 0;
     sbarra.value = 0;
+    audiogioco.pause()
     selectedDifficulty = null;
     // Ripristina il dropdown delle difficoltà
     document.querySelector('#difficultyDropdown').innerText = 'Scegli Difficoltà';
@@ -360,6 +364,7 @@ document.querySelector('#botreset').addEventListener("click", function () {
     moltiplicato = 0;
     moltiplicatore.classList.replace("moltiplicatore-attivo", "moltiplicatore-spento");
     moltluce = false;
+    audiogioco.pause()
     clearTimeout(tienitempo);
     clearTimeout(uscitaTimer);
     tempistica = 0;

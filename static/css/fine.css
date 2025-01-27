@@ -58,3 +58,14 @@
     font-size: 40px;
     animation: fadeIn 0.5s ease-in-out
 }
+
+@media (max-width: 768px) {
+    #titolofine {
+        font-size: 50px;
+        text-align: center;
+    }
+
+    #finePunteggio {
+        font-size: 30px;
+    }
+}

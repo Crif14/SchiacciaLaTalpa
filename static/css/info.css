@@ -21,3 +21,15 @@
 #punteggi li {
     font-size: 20px;
 }
+
+@media (max-width: 768px) {
+    #Info {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #punteggi {
+        display: none;
+    }
+}

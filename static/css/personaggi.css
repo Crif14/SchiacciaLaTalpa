@@ -31,3 +31,19 @@
     position: absolute;
     transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
+
+@media (max-width: 768px) {
+    .peach .bomba {
+        scale: 0.4;
+    }
+
+    .mario {
+        transform: scale(0.3);
+        transform-origin: top left;
+    }
+
+    .torna {
+        top: -30px
+    }
+
+}
