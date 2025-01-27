@@ -207,6 +207,9 @@ function uscita() {
         bombauscita[talpadauscire] = false;
         peach[talpadauscire].classList.replace("torna", "giu");
         peachuscita[talpadauscire] = false;
+        moltiplicato = 0;
+        moltiplicatore.classList.replace("moltiplicatore-attivo", "moltiplicatore-spento");
+        moltluce = false;
         nvite = 3
         for (let i = 0; i < 3; i++) {
             vite[i].classList.remove("is-empty");
@@ -342,10 +345,15 @@ document.querySelector('#botreset').addEventListener("click", function () {
         talpe[i].classList.replace("torna", "giu");
     }
     //Reset delle variabili 
+    moltiplicato = 0;
+    moltiplicatore.classList.replace("moltiplicatore-attivo", "moltiplicatore-spento");
+    moltluce = false;
     clearTimeout(tienitempo);
     clearTimeout(uscitaTimer);
     tempistica = 0;
     punteggio = 0;
+    moltiplicatore = 0
+    moltluce = false
     punthtml.innerHTML = punteggio;
     //Resetta la barra di progresso
     sbarra.value = 0;
