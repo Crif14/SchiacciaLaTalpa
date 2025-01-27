@@ -24,10 +24,10 @@ let tempistica = 0;
 let tipotalpla = 0;
 let nvite = 3;
 const vite = document.querySelectorAll(".heart")
-const audiocolpito = new Audio("static\audio\colpito.mp3")
-const audiobomba = new Audio("static\audio\bomba.mp3")
-const audiosconfitta = new Audio("static\audio\sconfitta.mp3")
-const audiovittoria = new Audio("static\audio\vittoria.mp3")
+const audiocolpito = new Audio("static/audio/colpito.mp3")
+const audiobomba = new Audio("static/audio/bomba.mp3")
+const audiosconfitta = new Audio("static/audio/sconfitta.mp3")
+const audiovittoria = new Audio("static/audio/vittoria.mp3")
 //contatore secondi
 function secondi() {
     tempistica = tempistica + 1;
@@ -255,10 +255,10 @@ for (let i = 0; i < difficolta.length; i++) {
 for (let i = 0; i < talpe.length; i++) {
     talpe[i].addEventListener("click", function (event) {
         if (tempistica < 30) {
-            audiocolpitocolpito.play();
             let el = event.currentTarget;
             let j = Array.from(talpe).indexOf(el);
             if (talpauscita[j] == true) {
+                audiocolpitocolpito.play();
                 cliccato = true;
                 talpe[talpadauscire].classList.replace("torna", "giu");
                 talpauscita[j] = false;
@@ -278,10 +278,10 @@ for (let i = 0; i < talpe.length; i++) {
 for (let i = 0; i < peach.length; i++) {
     peach[i].addEventListener("click", function (event) {
         if (tempistica < 30) {
-            audiocolpitocolpito.play();
             let el = event.currentTarget;
             let j = Array.from(peach).indexOf(el);
             if (peachuscita[j] == true) {
+                audiocolpitocolpito.play();
                 cliccato = true;
                 peach[talpadauscire].classList.replace("torna", "giu");
                 peachuscita[j] = false;
