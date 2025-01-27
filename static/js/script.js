@@ -347,7 +347,7 @@ document.querySelector('#btnRinizia').addEventListener('click', function () {
     sbarra.value = 0;
     audiogioco.pause()
     selectedDifficulty = null;
-    // Ripristina il dropdown delle difficoltà
+    //Ripristina il dropdown delle difficoltà
     document.querySelector('#difficultyDropdown').innerText = 'Scegli Difficoltà';
     document.querySelector('#difficultyDropdown').classList.remove('is-error');
 });
@@ -369,11 +369,14 @@ document.querySelector('#botreset').addEventListener("click", function () {
     clearTimeout(uscitaTimer);
     tempistica = 0;
     punteggio = 0;
-    moltiplicatore = 0
     moltluce = false
     punthtml.innerHTML = punteggio;
     //Resetta la barra di progresso
     sbarra.value = 0;
     console.log("Gioco resettato. Tornato al menu principale.");
+    selectedDifficulty = null;
+    //Ripristina il dropdown delle difficoltà
+    document.querySelector('#difficultyDropdown').innerText = 'Scegli Difficoltà';
+    document.querySelector('#difficultyDropdown').classList.remove('is-error');
 });
 
