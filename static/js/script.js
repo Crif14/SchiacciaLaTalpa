@@ -347,6 +347,7 @@ document.querySelector('#btnRinizia').addEventListener('click', function () {
     sbarra.value = 0;
     audiogioco.pause()
     selectedDifficulty = null;
+    punteggio.innerHTML = 0
     //Ripristina il dropdown delle difficoltà
     document.querySelector('#difficultyDropdown').innerText = 'Scegli Difficoltà';
     document.querySelector('#difficultyDropdown').classList.remove('is-error');
@@ -365,6 +366,7 @@ document.querySelector('#botreset').addEventListener("click", function () {
     moltiplicatore.classList.replace("moltiplicatore-attivo", "moltiplicatore-spento");
     moltluce = false;
     audiogioco.pause()
+    punteggio.innerHTML = 0
     clearTimeout(tienitempo);
     clearTimeout(uscitaTimer);
     tempistica = 0;
