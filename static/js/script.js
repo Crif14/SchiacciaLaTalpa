@@ -1,15 +1,15 @@
-let finegioco = document.querySelector("#divfinegioco")
-let bomba = document.querySelectorAll(".bomba")
-let peach = document.querySelectorAll(".peach")
+const finegioco = document.querySelector("#divfinegioco")
+const bomba = document.querySelectorAll(".bomba")
+const peach = document.querySelectorAll(".peach")
 let moltluce = false
 let moltiplicato = 0;
-let moltiplicatore = document.querySelector("#moltiplicatore")
-let menuplay = document.querySelector("#menuplay")
-let contgrid = document.querySelector("#cont-grid")
+const moltiplicatore = document.querySelector("#moltiplicatore")
+const menuplay = document.querySelector("#menuplay")
+const contgrid = document.querySelector("#cont-grid")
 let selectedDifficulty = null;
-let talpe = document.querySelectorAll(".mario")
-let difficolta = document.querySelectorAll(".dropdown-item")
-let punthtml = document.querySelector("#punteggio")
+const talpe = document.querySelectorAll(".mario")
+const difficolta = document.querySelectorAll(".dropdown-item")
+const punthtml = document.querySelector("#punteggio")
 let talpadauscire = 0;
 let talpauscita = [];
 let bombauscita = [];
@@ -19,11 +19,15 @@ let tienitempo = null;
 let tempo = 0;
 let uscitaTimer = null;
 let punteggio = 0;
-let sbarra = document.querySelector("#progresso");
+const sbarra = document.querySelector("#progresso");
 let tempistica = 0;
 let tipotalpla = 0;
 let nvite = 3;
-let vite = document.querySelectorAll(".heart")
+const vite = document.querySelectorAll(".heart")
+const audiocolpito = new Audio("static\audio\colpito.mp3")
+const audiobomba = new Audio("static\audio\bomba.mp3")
+const audiosconfitta = new Audio("static\audio\sconfitta.mp3")
+const audiovittoria = new Audio("static\audio\vittoria.mp3")
 //contatore secondi
 function secondi() {
     tempistica = tempistica + 1;
@@ -214,6 +218,11 @@ function uscita() {
         for (let i = 0; i < 3; i++) {
             vite[i].classList.remove("is-empty");
         }
+        if (nvite < 1) {
+            audiosconfitta.play()
+        } else {
+            audiovittoria.play()
+        }
         // Aggiorna la classifica con il punteggio finale
         aggiornaClassifica(punteggio);
         //Discesa overlay finegioco
@@ -246,6 +255,7 @@ for (let i = 0; i < difficolta.length; i++) {
 for (let i = 0; i < talpe.length; i++) {
     talpe[i].addEventListener("click", function (event) {
         if (tempistica < 30) {
+            audiocolpitocolpito.play();
             let el = event.currentTarget;
             let j = Array.from(talpe).indexOf(el);
             if (talpauscita[j] == true) {
@@ -268,6 +278,7 @@ for (let i = 0; i < talpe.length; i++) {
 for (let i = 0; i < peach.length; i++) {
     peach[i].addEventListener("click", function (event) {
         if (tempistica < 30) {
+            audiocolpitocolpito.play();
             let el = event.currentTarget;
             let j = Array.from(peach).indexOf(el);
             if (peachuscita[j] == true) {
@@ -293,6 +304,7 @@ for (let i = 0; i < bomba.length; i++) {
             let el = event.currentTarget;
             let j = Array.from(bomba).indexOf(el);
             if (bombauscita[j] == true) {
+                audiobomba.play();
                 cliccato = true;
                 bomba[talpadauscire].classList.replace("torna", "giu");
                 bombauscita[j] = false;
