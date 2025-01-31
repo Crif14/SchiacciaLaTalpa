@@ -347,7 +347,7 @@ document.querySelector('#btnRinizia').addEventListener('click', function () {
     sbarra.value = 0;
     audiogioco.pause()
     selectedDifficulty = null;
-    punteggio.innerHTML = 0
+    punthtml.innerHTML = 0
     //Ripristina il dropdown delle difficoltà
     document.querySelector('#difficultyDropdown').innerText = 'Scegli Difficoltà';
     document.querySelector('#difficultyDropdown').classList.remove('is-error');

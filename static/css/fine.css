@@ -3,7 +3,7 @@
     width: 100vw;
     height: 100vh;
     left: 0;
-    top: -100%;
+    top: -100vh;
     z-index: 9;
     transition: all 0.2s ease-in-out;
 }
